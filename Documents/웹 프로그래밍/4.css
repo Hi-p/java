@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    margin: 0;
+}
+
+.survey-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    width: 100%;
+}
+
+.survey-header p {
+    text-align: left;
+    padding: 0 10px;  
+}
+
+.survey-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0 0 10px;
+}
+
+.survey-section {
+    margin-bottom: 35px;
+}
+
+.survey-section h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #34495e;
+    border-left: 4px solid #3498db;
+    padding-left: 12px;
+    margin-bottom: 20px;
+}
+
+.question {
+    margin-bottom: 25px;
+}
+
+.question label {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.options label, .options-checkbox label {
+    margin-right: 20px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.options input[type="radio"], .options-checkbox input[type="checkbox"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.options-checkbox div {
+    display: block;
+    margin-bottom: 8px;
+}
+
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: 'Noto Sans KR', sans-serif;
+    resize: vertical;
+    box-sizing: border-box; 
+}
+
+textarea:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+.email-section {
+    margin-bottom: 30px;
+}
+
+
+#email {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+#email:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}

@@ -1,0 +1,12 @@
+body {
+    font-family: sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: skyblue;
+}
+
+div {
+    padding: 20px;
+    background-color: white;
+    display: inline-block;
+}

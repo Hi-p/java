@@ -1,0 +1,131 @@
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 30px;
+  color: #222;
+
+}
+
+.resume {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+
+.photo img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #eee;
+}
+
+#number, #email {
+  background-color: ivory;
+}
+
+.info h1 {
+  font-size: 28px;
+  margin: 0 0 10px;
+  background-color: ivory;
+}
+
+.info p {
+  margin: 4px 0;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.section {
+  margin-top: 35px;
+}
+
+.section h2 {
+  font-size: 20px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.item {
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.item strong {
+  display: inline-block;
+  width: 290px;
+  font-weight: bold;
+}
+
+.university img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.info {
+  flex: 1;
+  margin: 0 20px;
+}
+
+table.family {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.family th, table.family td {
+  border: 1px solid black;
+  padding: 6px;
+  text-align: center;
+  font-weight: bold;
+}
+
+table.myself {
+  width:100%;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+table.myself td {
+  padding:15px;
+  font-weight: bold;
+}
+
+
+
+.page {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
+.next-page {
+  padding: 10px 10px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* .next-page:hover {
+  background-color: #0056b3;
+} */
