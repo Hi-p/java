@@ -1,0 +1,9 @@
+# Mac 시스템 파일
+.DS_Store
+
+# Java 컴파일 파일
+*.class
+
+# 에디터 설정 폴더
+.vscode/
+.idea/
