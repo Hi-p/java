@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>대시보드</title>
+    <link rel="stylesheet" href="홈페이지2.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- 헤더 -->
+        <header class="dashboard-header">
+            <h1>Dashboard</h1>
+            <button class="logout-btn" id="logoutBtn">🚪 로그아웃</button>
+        </header>
+
+        <!-- 환영 메시지 -->
+        <div class="welcome-section">
+            <h2>환영합니다, <span id="username">사용자</span>님! 👋</h2>
+            <p class="welcome-text">오늘도 좋은 하루 되세요!</p>
+        </div>
+
+        <!-- 프로필 정보 카드 -->
+        <div class="profile-card">
+            <div class="profile-icon">👤</div>
+            <div class="profile-info">
+                <h3>내 정보</h3>
+                <p><strong>아이디:</strong> <span id="profileUsername">-</span></p>
+                <p><strong>이메일:</strong> <span id="profileEmail">-</span></p>
+                <p><strong>가입일:</strong> <span id="joinDate">-</span></p>
+            </div>
+        </div>
+
+        <!-- 빠른 액세스 메뉴 -->
+        <div class="quick-menu">
+            <h3>빠른 메뉴</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-icon">📊</div>
+                    <p>통계</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon">👤</div>
+                    <p>프로필</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon">⚙️</div>
+                    <p>설정</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon">📝</div>
+                    <p>글쓰기</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon">🔔</div>
+                    <p>알림</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon">📂</div>
+                    <p>파일</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 최근 활동 -->
+        <div class="recent-activity">
+            <h3>최근 활동</h3>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <span class="activity-icon">✅</span>
+                    <span>로그인 성공</span>
+                    <span class="activity-time">방금 전</span>
+                </div>
+                <div class="activity-item">
+                    <span class="activity-icon">📝</span>
+                    <span>프로필 조회</span>
+                    <span class="activity-time">1분 전</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // URL 파라미터에서 사용자명 가져오기
+        const urlParams = new URLSearchParams(window.location.search);
+        const usernameFromUrl = urlParams.get('username');
+
+        // LocalStorage에서 사용자 정보 가져오기
+        let currentUser = null;
+
+        if (usernameFromUrl) {
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            currentUser = users.find(u => u.username === usernameFromUrl);
+        } else {
+            // 로그인 상태 유지로 저장된 사용자
+            const savedUser = localStorage.getItem('currentUser');
+            if (savedUser) {
+                currentUser = JSON.parse(savedUser);
+            }
+        }
+
+        // 사용자 정보 표시
+        if (currentUser) {
+            document.getElementById('username').textContent = currentUser.username;
+            document.getElementById('profileUsername').textContent = currentUser.username;
+            document.getElementById('profileEmail').textContent = currentUser.email;
+
+            // 가입일 (현재 날짜로 시뮬레이션)
+            const joinDate = new Date().toLocaleDateString('ko-KR');
+            document.getElementById('joinDate').textContent = joinDate;
+        } else {
+            // 로그인 정보가 없으면 로그인 페이지로 리다이렉트
+            alert('로그인이 필요합니다.');
+            window.location.href = '홈페이지.html';
+        }
+
+        // 로그아웃 기능
+        document.getElementById('logoutBtn').addEventListener('click', function () {
+            if (confirm('로그아웃 하시겠습니까?')) {
+                // 로그인 상태 유지 정보 삭제
+                localStorage.removeItem('currentUser');
+                alert('로그아웃되었습니다.');
+                window.location.href = '홈페이지.html';
+            }
+        });
+
+        // 메뉴 아이템 클릭 이벤트
+        const menuItems = document.querySelectorAll('.menu-item');
+        menuItems.forEach(item => {
+            item.addEventListener('click', function () {
+                const menuName = this.querySelector('p').textContent;
+                alert(`"${menuName}" 기능은 준비 중입니다!`);
+            });
+        });
+    </script>
+</body>
+
+</html>

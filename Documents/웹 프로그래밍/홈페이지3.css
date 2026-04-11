@@ -1,0 +1,54 @@
+    body {
+        font-family: 'Noto Sans KR', sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 40px 20px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 40px;
+        color: #2c3e50;
+    }
+
+    .company {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    .B1 {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s;
+    }
+
+    .B1:hover {
+        transform: translateY(-5px);
+    }
+
+    .B1 h3 {
+        margin-top: 0;
+        color: #34495e;
+    }
+
+    .B1 p {
+        color: #555;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+        .company {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    a {
+        text-decoration-line: none;
+        color: inherit;
+    }

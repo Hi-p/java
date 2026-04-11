@@ -1,0 +1,161 @@
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 30px;
+  color: #222;
+}
+
+.resume {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section {
+  padding: 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.section:hover {
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transform: translateX(5px);
+}
+
+.section h2 {
+  font-size: 20px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  margin-top: 30px;
+  transition: border-color 0.3s ease;
+}
+
+.section:hover h2 {
+  border-bottom-color: #333;
+}
+
+.item {
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+table.myself {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+table.myself td {
+  padding: 15px;
+  font-weight: bold;
+}
+
+.page {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
+
+.previous-page {
+  padding: 10px 10px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+.previous-page:hover {
+  background-color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.next-page {
+  padding: 10px 10px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+}
+
+.next-page:hover {
+  background-color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 모바일 반응형 스타일 */
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+
+  .resume {
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  .section {
+    padding: 10px;
+  }
+
+  .section h2 {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+
+  .section:hover {
+    transform: translateX(0);
+  }
+
+  .item {
+    font-size: 16px;
+  }
+
+  table.myself td {
+    padding: 12px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .page {
+    margin-top: 30px;
+  }
+
+  .previous-page,
+  .next-page {
+    padding: 12px 16px;
+    font-size: 14px;
+    margin: 5px;
+    display: inline-block;
+  }
+}

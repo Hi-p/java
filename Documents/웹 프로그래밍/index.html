@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="resume_2.css">
+  <title>이력서</title>
+</head>
+
+<body>
+  <div class="resume">
+    <div class="header">
+      <div class="photo">
+        <img src="edward.jpeg" alt="프로필 사진">
+      </div>
+      <div class="info">
+        <h1>곽준오(郭俊吾), KWAK JOONOH</h1>
+        <p>나이: 23</p>
+        <p>주소: 전라북도 김제시 금구면 봉두 4길 40</p>
+        <p id="number">전화번호: 010-4086-0629</p>
+        <p id="email">이메일: kjo030629@gmail.com</p>
+        <p>Github: <a href="https://github.com" target="_blank">https://github.com/Air conditioner</a></p>
+      </div>
+      <div class="university">
+        <img src="jj.svg">
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>1) 학력사항</h2>
+      <ul class="item">
+        <li><strong>전주전일초등학교</strong> 2010.03 ~ 2016.02</li>
+        <li><strong>전주중앙중학교</strong> 2016.03 ~ 2019.02</li>
+        <li><strong>전주신흥고등학교</strong> 2019.03 ~ 2022.02</li>
+        <li><strong>전주대학교</strong> 2022.03 ~ 재학중</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>2) 전공</h2>
+      <ul class="item">
+        <li><strong>컴퓨터 공학과</strong></li>
+      </ul>
+      <div class="skills-container">
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name skill-clickable" id="java-skill">JAVA</span>
+            <span class="skill-percent">75%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" data-progress="75"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name skill-clickable" id="htmlcss-skill">HTML/CSS</span>
+            <span class="skill-percent">80%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" data-progress="80"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>3) 자격증</h2>
+      <ul class="item">
+        <li><strong class="certificate-link" id="cert-link">컴퓨터활용능력 2급</strong></li>
+        <li><strong>정보처리기사(추후예정)</strong></li>
+        <li><strong>SQLD(추후예정)</strong></li>
+        <li><strong>리눅스 마스터 2급(추후예정)</strong></li>
+      </ul>
+    </div>
+
+    <!-- 자격증 이미지 모달 -->
+    <div id="certModal" class="modal">
+      <div class="modal-content" id="cert-modal-content">
+        <span class="close">&times;</span>
+        <img src="certificate.jpeg" alt="컴퓨터활용능력 2급 자격증" class="modal-image">
+      </div>
+    </div>
+
+    <!-- JAVA 비디오 모달 -->
+    <div id="javaVideoModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="close-java">&times;</span>
+        <video class="modal-video" id="java-video" controls preload="metadata">
+          <source src="java.mov" type="video/mp4">
+          <source src="java.mov" type="video/quicktime">
+          비디오를 재생할 수 없습니다. 브라우저가 이 형식을 지원하지 않습니다.
+        </video>
+      </div>
+    </div>
+
+    <!-- HTML/CSS 비디오 모달 -->
+    <div id="htmlcssVideoModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="close-htmlcss">&times;</span>
+        <video class="modal-video" id="htmlcss-video" controls preload="metadata">
+          <source src="html,css.mov" type="video/mp4">
+          <source src="html,css.mov" type="video/quicktime">
+          비디오를 재생할 수 없습니다. 브라우저가 이 형식을 지원하지 않습니다.
+        </video>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>4) 수상내역</h2>
+      <ul class="item">
+        <li><strong>2022 - 최우등상</strong></li>
+        <li><strong>2022 - 스크래치 대회 수상</strong></li>
+        <li><strong>2025 - 최우등상</strong></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>5) 병역</h2>
+      <ul class="item">
+        <li><strong>육군 병장 만기 전역 - 예비군 1년차</strong></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>6) 가족관계</h2>
+      <div class="item">
+        <table class="family">
+          <thead>
+            <tr>
+              <th>구분</th>
+              <th>관계</th>
+              <th>이름</th>
+              <th>생년</th>
+              <th>직업</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>부</td>
+              <td>아버지</td>
+              <td>곽회상</td>
+              <td>1977.11.23</td>
+              <td>사업</td>
+            </tr>
+            <tr>
+              <td>모</td>
+              <td>어머니</td>
+              <td>편영숙</td>
+              <td>1980.05.28</td>
+              <td>회사원</td>
+            </tr>
+            <tr>
+              <td>형제</td>
+              <td>여동생</td>
+              <td>곽민서</td>
+              <td>2005.10.31</td>
+              <td>헤어디자이너</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="section">
+      <h2>7) 자기소개 - 소프트웨어 개발자 지망생</h2>
+      <div class="item">
+        <table class="myself">
+          <tr>
+            <td>
+              저는 전주대학교 컴퓨터공학과 2학년에 재학 중이며, 소프트웨어 개발과 IT 기술 전반에 깊은 관심을 가지고 폭넓게 학습하고 있습니다.<br><br>
+
+              컴퓨터공학을 전공하면서 프로그래밍의 매력에 빠지게 되었고, 특히 사용자가 보지 못하는 뒷단에서 안정적이고 효율적인 시스템을 구축하는 백엔드 개발에 큰 흥미를 느꼈습니다.
+              동시에 사용자와 직접 상호작용하는 프론트엔드 개발에도 관심이 많아, HTML/CSS/JavaScript를 활용한 웹 페이지 제작을 통해 UI/UX 구현 경험을 쌓고 있습니다.
+              백엔드와 프론트엔드를 모두 이해하는 풀스택 개발자로 성장하여, 전체적인 시스템 구조를 파악하고 효율적인 개발을 하고 싶습니다.<br><br>
+
+              또한 4차 산업혁명의 핵심인 반도체 분야에도 큰 관심을 가지고 있습니다.
+              컴퓨터 구조와 디지털 논리회로 수업을 들으며 하드웨어와 소프트웨어가 어떻게 연결되는지 이해하게 되었고,
+              반도체가 모든 디지털 기기의 근간이 되는 기술임을 깨닫게 되었습니다.
+              소프트웨어 개발 역량을 바탕으로 반도체 설계 자동화, 공정 최적화 소프트웨어 등 하드웨어와 소프트웨어가 융합된 분야에서도 기여하고 싶습니다.<br><br>
+
+              이론뿐만 아니라 실제 구현 경험을 쌓기 위해 다양한 프로젝트를 진행해 왔습니다.
+              Java Swing을 활용한 그림판 애플리케이션을 개발하며 GUI 프로그래밍과 이벤트 처리를 학습했고,
+              소프트웨어 프로젝트 과목에서는 HTML/CSS로 국내 대기업을 소개하는 웹사이트를 제작하며 웹 개발의 기초를 다졌습니다.
+              또한 팀 프로젝트로 음악 추천 웹사이트 'NewSic'을 개발하며 팀원들과 협업하는 방법을 배웠고, JavaScript를 활용한 인터랙티브한 기능 구현 경험을 쌓았습니다.<br><br>
+
+              이러한 프로젝트 경험을 통해 사용자의 요청이 서버에서 처리되고 결과가 화면에 출력되는 전체 흐름을 이해할 수 있었으며,
+              더 깊이 있는 백엔드 기술인 Spring Framework, 데이터베이스 설계, RESTful API 개발뿐만 아니라,
+              React, Vue.js 같은 최신 프론트엔드 프레임워크도 학습하고 싶다는 목표가 생겼습니다.
+              현재는 정보처리기사, SQLD, 리눅스 마스터 자격증 취득을 준비하며 이론적 기반을 탄탄히 하고 있으며,
+              Spring Boot와 MySQL을 활용한 개인 프로젝트를 진행하여 실무 역량을 키워갈 것입니다.<br><br>
+
+              삼성전자는 반도체, 소프트웨어, 모바일, 가전 등 다양한 분야에서 글로벌 1위 기술력을 보유하고 있으며,
+              끊임없는 혁신을 통해 미래를 선도하는 기업이라는 점에서 큰 매력을 느낍니다.
+              저는 끊임없이 새로운 기술을 학습하고, 문제 해결 과정에서 팀원들과 적극적으로 협력하며,
+              확장성과 유지보수을 고려한 코드를 작성하는 개발자로 성장하고 싶습니다.
+              소프트웨어 개발부터 반도체 관련 분야까지, 제가 기여할 수 있는 모든 영역에서 최선을 다하며
+              항상 배우는 자세로 임하여 삼성전자의 성장과 발전에 기여할 수 있는 인재가 될것입니다.
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="page">
+      <a href="resume_3.html" class="next-page">다음 페이지</a>
+    </div>
+  </div>
+
+  <script>
+    // 페이지 로드 시 프로그레스 바 애니메이션
+    window.addEventListener('load', function () {
+      const progressFills = document.querySelectorAll('.progress-fill');
+
+      setTimeout(() => {
+        progressFills.forEach(fill => {
+          const progress = fill.getAttribute('data-progress');
+          fill.style.width = progress + '%';
+        });
+      }, 300);
+    });
+
+    // 타이핑 효과
+    const titleElement = document.querySelector('.info h1');
+    if (titleElement) {
+      const originalText = titleElement.textContent;
+      titleElement.textContent = '';
+      titleElement.style.opacity = '1';
+
+      let charIndex = 0;
+      function typeWriter() {
+        if (charIndex < originalText.length) {
+          titleElement.textContent += originalText.charAt(charIndex);
+          charIndex++;
+          setTimeout(typeWriter, 100);
+        }
+      }
+
+      setTimeout(typeWriter, 500);
+    }
+
+    // 자격증 모달 기능
+    const modal = document.getElementById('certModal');
+    const certLink = document.getElementById('cert-link');
+    const closeBtn = document.querySelector('.close');
+
+    // 자격증 클릭 시 모달 열기
+    if (certLink) {
+      certLink.addEventListener('click', function () {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // 스크롤 방지
+      });
+    }
+
+    // X 버튼 클릭 시 모달 닫기
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // 스크롤 복원
+      });
+    }
+
+    // 모달 바깥 클릭 시 닫기
+    window.addEventListener('click', function (event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // ESC 키로 모달 닫기
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && modal.style.display === 'block') {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // 비디오 모달 기능
+    const javaVideoModal = document.getElementById('javaVideoModal');
+    const htmlcssVideoModal = document.getElementById('htmlcssVideoModal');
+    const javaSkill = document.getElementById('java-skill');
+    const htmlcssSkill = document.getElementById('htmlcss-skill');
+    const javaVideo = document.getElementById('java-video');
+    const htmlcssVideo = document.getElementById('htmlcss-video');
+    const closeJava = document.getElementById('close-java');
+    const closeHtmlcss = document.getElementById('close-htmlcss');
+
+    // JAVA 스킬 클릭 시 비디오 모달 열기
+    if (javaSkill) {
+      javaSkill.addEventListener('click', function () {
+        javaVideoModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        javaVideo.play();
+      });
+    }
+
+    // HTML/CSS 스킬 클릭 시 비디오 모달 열기
+    if (htmlcssSkill) {
+      htmlcssSkill.addEventListener('click', function () {
+        htmlcssVideoModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        htmlcssVideo.play();
+      });
+    }
+
+    // JAVA 비디오 모달 닫기
+    if (closeJava) {
+      closeJava.addEventListener('click', function () {
+        javaVideoModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        javaVideo.pause();
+        javaVideo.currentTime = 0;
+      });
+    }
+
+    // HTML/CSS 비디오 모달 닫기
+    if (closeHtmlcss) {
+      closeHtmlcss.addEventListener('click', function () {
+        htmlcssVideoModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        htmlcssVideo.pause();
+        htmlcssVideo.currentTime = 0;
+      });
+    }
+
+    // 모달 바깥 클릭 시 비디오 모달 닫기
+    window.addEventListener('click', function (event) {
+      if (event.target === javaVideoModal) {
+        javaVideoModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        javaVideo.pause();
+        javaVideo.currentTime = 0;
+      }
+      if (event.target === htmlcssVideoModal) {
+        htmlcssVideoModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        htmlcssVideo.pause();
+        htmlcssVideo.currentTime = 0;
+      }
+    });
+
+    // ESC 키로 비디오 모달 닫기
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        if (javaVideoModal.style.display === 'block') {
+          javaVideoModal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+          javaVideo.pause();
+          javaVideo.currentTime = 0;
+        }
+        if (htmlcssVideoModal.style.display === 'block') {
+          htmlcssVideoModal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+          htmlcssVideo.pause();
+          htmlcssVideo.currentTime = 0;
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

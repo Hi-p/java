@@ -1,0 +1,559 @@
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 30px;
+  color: #222;
+
+}
+
+.resume {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+
+.photo img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #eee;
+}
+
+#number,
+#email {
+  background-color: ivory;
+}
+
+.info h1 {
+  font-size: 28px;
+  margin: 0 0 10px;
+  background-color: ivory;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.info p {
+  margin: 4px 0;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.info a {
+  color: #000;
+  text-decoration: underline;
+}
+
+.info a:visited {
+  color: #000;
+}
+
+.info a:hover {
+  color: #000;
+}
+
+.info a:active {
+  color: #000;
+}
+
+.section {
+  margin-top: 35px;
+  padding: 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.section:hover {
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transform: translateX(5px);
+}
+
+.section h2 {
+  font-size: 20px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  transition: border-color 0.3s ease;
+}
+
+.section:hover h2 {
+  border-bottom-color: #333;
+}
+
+.item {
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.item strong {
+  display: inline-block;
+  width: 290px;
+  font-weight: bold;
+}
+
+.university img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.info {
+  flex: 1;
+  margin: 0 20px;
+}
+
+table.family {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.family th,
+table.family td {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+table.family tbody tr {
+  transition: all 0.3s ease;
+}
+
+table.family tbody tr:hover {
+  background-color: lightgray;
+  transform: scale(1.02);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+table.myself {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+table.myself td {
+  padding: 15px;
+  font-weight: bold;
+}
+
+.page {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
+.next-page {
+  padding: 10px 10px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+
+/* 기술 스택 프로그레스 바 */
+.skills-container {
+  margin-top: 15px;
+  padding: 10px 0;
+}
+
+.skill-item {
+  margin-bottom: 20px;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.skill-name {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+.skill-clickable {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* JAVA, HTML/CSS 클릭 효과 */
+.skill-clickable:hover {
+  color: #4CAF50;
+  text-decoration: underline;
+  transform: scale(1.05);
+}
+
+.skill-percent {
+  font-weight: bold;
+  font-size: 14px;
+  color: #666;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 25px;
+  background-color: #e9ecef;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #4CAF50);
+  border-radius: 15px;
+  transition: width 1.5s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* 프로필 이미지 호버 효과 */
+.photo img {
+  transition: all 0.3s ease;
+}
+
+.photo img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 대학 로고 호버 효과 */
+.university img {
+  transition: all 0.3s ease;
+}
+
+.university img:hover {
+  transform: scale(1.05);
+}
+
+/* 다음 페이지 버튼 호버 효과 */
+.next-page {
+  transition: all 0.3s ease;
+}
+
+.next-page:hover {
+  background-color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 자격증 클릭 링크 스타일 */
+.certificate-link {
+  color: #000;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: all 0.3s ease;
+}
+
+.certificate-link:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+/* 모달 스타일 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  position: relative;
+  margin: 5% auto;
+  padding: 0;
+  max-width: 90%;
+  max-height: 85vh;
+  animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* 자격증 모달 크기 조정 */
+#cert-modal-content {
+  max-width: 50%;
+}
+
+/* 작은 화면에서는 크기 조정 */
+@media (max-width: 768px) {
+  #cert-modal-content {
+    max-width: 80%;
+  }
+}
+
+.modal-video {
+  width: 100%;
+  max-height: 80vh;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1001;
+}
+
+/* 모바일 반응형 스타일 */
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+
+  .resume {
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  /* 헤더 모바일 레이아웃 */
+  .header {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .photo img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .university img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .info {
+    margin: 0;
+  }
+
+  .info h1 {
+    font-size: 20px;
+    word-break: keep-all;
+  }
+
+  .info p {
+    font-size: 13px;
+    word-break: keep-all;
+  }
+
+  /* 섹션 모바일 스타일 */
+  .section {
+    margin-top: 20px;
+    padding: 10px;
+  }
+
+  .section h2 {
+    font-size: 18px;
+  }
+
+  .section:hover {
+    transform: translateX(0);
+  }
+
+  /* 리스트 아이템 모바일 */
+  .item {
+    font-size: 16px;
+  }
+
+  .item strong {
+    width: 100%;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  /* 스킬 프로그레스 바 모바일 */
+  .skill-name {
+    font-size: 14px;
+  }
+
+  .skill-percent {
+    font-size: 12px;
+  }
+
+  .progress-bar {
+    height: 20px;
+  }
+
+  /* 테이블 모바일 스타일 */
+  table.family {
+    font-size: 12px;
+  }
+
+  table.family th,
+  table.family td {
+    padding: 8px 4px;
+  }
+
+  table.family tbody tr:hover {
+    transform: scale(1);
+  }
+
+  table.myself td {
+    padding: 12px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* 버튼 모바일 스타일 */
+  .next-page {
+    padding: 12px 20px;
+    font-size: 14px;
+    display: inline-block;
+  }
+
+  /* 모달 모바일 스타일 */
+  .modal-content {
+    max-width: 95%;
+    margin: 10% auto;
+  }
+
+  #cert-modal-content {
+    max-width: 90%;
+  }
+
+  .modal-video {
+    max-height: 60vh;
+  }
+
+  .close {
+    font-size: 30px;
+    top: -35px;
+  }
+}
+
+/* 복사 버튼 스타일 */
+.copy-btn {
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  color: #666;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  vertical-align: middle;
+}
+
+.copy-btn:hover {
+  background: #e0e0e0;
+  border-color: #ccc;
+  color: #333;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.copy-btn:active {
+  transform: translateY(0);
+}
+
+/* 토스트 알림 스타일 */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #333;
+  color: white;
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 10000;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
