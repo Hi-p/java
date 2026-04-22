@@ -1,0 +1,576 @@
+/* ========================================
+   실시간 시계 & 날씨 대시보드 스타일
+   글래스모피즘 + 다이내믹 그라데이션
+   ======================================== */
+
+/* --- CSS 변수 (디자인 토큰) --- */
+:root {
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* 배경 그라데이션 (날씨에 따라 JS에서 변경) */
+    --bg-gradient-1: #0f0c29;
+    --bg-gradient-2: #302b63;
+    --bg-gradient-3: #24243e;
+
+    /* 글래스 효과 */
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --glass-blur: 20px;
+
+    /* 텍스트 */
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --text-muted: rgba(255, 255, 255, 0.45);
+
+    /* 강조 색상 */
+    --accent: #6c63ff;
+    --accent-glow: rgba(108, 99, 255, 0.4);
+
+    /* 간격 */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+
+    /* 라운딩 */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-full: 50%;
+}
+
+/* --- 리셋 & 기본 --- */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background: linear-gradient(135deg, var(--bg-gradient-1), var(--bg-gradient-2), var(--bg-gradient-3));
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background 1.5s ease;
+}
+
+/* --- 배경 파티클 애니메이션 --- */
+.bg-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-full);
+    animation: particleFloat linear infinite;
+}
+
+.particle:nth-child(1) { left: 10%; width: 8px; height: 8px; animation-duration: 25s; animation-delay: 0s; }
+.particle:nth-child(2) { left: 25%; width: 4px; height: 4px; animation-duration: 20s; animation-delay: 2s; }
+.particle:nth-child(3) { left: 45%; width: 6px; height: 6px; animation-duration: 28s; animation-delay: 4s; }
+.particle:nth-child(4) { left: 65%; width: 10px; height: 10px; animation-duration: 22s; animation-delay: 1s; }
+.particle:nth-child(5) { left: 80%; width: 5px; height: 5px; animation-duration: 30s; animation-delay: 3s; }
+.particle:nth-child(6) { left: 90%; width: 7px; height: 7px; animation-duration: 26s; animation-delay: 5s; }
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(110vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% {
+        transform: translateY(-10vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* --- 컨테이너 --- */
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+/* --- 헤더 --- */
+.header {
+    text-align: center;
+    padding: var(--space-md) 0;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff, #a5b4fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: var(--space-xs);
+    font-weight: 300;
+}
+
+/* --- 글래스 카드 (공통) --- */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--glass-shadow);
+    padding: var(--space-xl);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* --- 시계 --- */
+.clock-card {
+    text-align: center;
+    padding: var(--space-2xl) var(--space-xl);
+}
+
+.clock-time {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    background: linear-gradient(135deg, #fff, #c7d2fe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: var(--space-sm);
+}
+
+.clock-date {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.clock-divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    margin: var(--space-lg) auto;
+}
+
+.clock-seconds-bar {
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.seconds-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent), #a78bfa);
+    border-radius: 2px;
+    transition: width 1s linear;
+}
+
+/* --- 검색 --- */
+.search-card {
+    padding: var(--space-md) var(--space-lg);
+    position: relative;
+}
+
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.search-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.search-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-primary);
+    font-family: var(--font-family);
+    font-size: 0.95rem;
+    padding: var(--space-sm) 0;
+}
+
+.search-input::placeholder {
+    color: var(--text-muted);
+}
+
+.search-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-family);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.search-btn:hover {
+    background: #5b54e6;
+    box-shadow: 0 4px 15px var(--accent-glow);
+    transform: translateY(-1px);
+}
+
+.search-btn:active {
+    transform: translateY(0);
+}
+
+/* --- 검색 결과 드롭다운 --- */
+.search-results {
+    list-style: none;
+    margin-top: var(--space-sm);
+    border-top: 1px solid var(--glass-border);
+    padding-top: var(--space-sm);
+}
+
+.search-results li {
+    padding: var(--space-sm) var(--space-md);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.search-results li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+.search-results li .result-country {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-left: auto;
+}
+
+/* --- 날씨 카드 --- */
+.weather-card {
+    padding: var(--space-xl) var(--space-xl) var(--space-lg);
+}
+
+.weather-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.weather-location {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.weather-location h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.location-icon {
+    font-size: 1.1rem;
+}
+
+.weather-icon-large {
+    font-size: 3.5rem;
+    line-height: 1;
+    animation: weatherBounce 3s ease-in-out infinite;
+}
+
+@keyframes weatherBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.weather-main {
+    margin: var(--space-lg) 0;
+}
+
+.temp-display {
+    display: flex;
+    align-items: flex-start;
+}
+
+.temp-value {
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1;
+    background: linear-gradient(135deg, #fff, #e0e7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.temp-unit {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--text-secondary);
+    margin-top: 8px;
+}
+
+.weather-desc {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-top: var(--space-xs);
+    font-weight: 400;
+}
+
+.feels-like {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: var(--space-xs);
+}
+
+/* --- 날씨 상세 --- */
+.weather-details {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--glass-border);
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm);
+    border-radius: var(--radius-sm);
+    transition: background 0.2s ease;
+}
+
+.detail-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.detail-icon {
+    font-size: 1.3rem;
+}
+
+.detail-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.detail-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* --- 5일 예보 --- */
+.forecast-card {
+    padding: var(--space-lg) var(--space-xl);
+}
+
+.forecast-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: var(--space-md);
+    color: var(--text-secondary);
+}
+
+.forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--space-sm);
+}
+
+.forecast-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-md) var(--space-sm);
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.forecast-day:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-3px);
+}
+
+.forecast-day .day-name {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.forecast-day .day-icon {
+    font-size: 1.8rem;
+    margin: var(--space-xs) 0;
+}
+
+.forecast-day .day-temp-high {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.forecast-day .day-temp-low {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--text-muted);
+}
+
+/* --- 로딩 --- */
+.loading {
+    text-align: center;
+    padding: var(--space-xl);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top-color: var(--accent);
+    border-radius: var(--radius-full);
+    margin: 0 auto var(--space-md);
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* --- 에러 --- */
+.error-msg {
+    text-align: center;
+    padding: var(--space-md);
+    color: #fca5a5;
+    font-size: 0.9rem;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: var(--radius-md);
+}
+
+/* --- 푸터 --- */
+.footer {
+    text-align: center;
+    padding: var(--space-md);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
+.footer a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer a:hover {
+    color: var(--text-primary);
+}
+
+/* --- 유틸리티 --- */
+.hidden {
+    display: none !important;
+}
+
+/* --- 등장 애니메이션 --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+/* --- 반응형 --- */
+@media (max-width: 640px) {
+    .container {
+        padding: var(--space-md) var(--space-sm);
+    }
+
+    .clock-time {
+        font-size: 2.8rem;
+        letter-spacing: 2px;
+    }
+
+    .clock-date {
+        font-size: 0.9rem;
+    }
+
+    .temp-value {
+        font-size: 3.5rem;
+    }
+
+    .weather-details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .forecast-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 4px;
+    }
+
+    .forecast-day .day-icon {
+        font-size: 1.4rem;
+    }
+
+    .glass-card {
+        padding: var(--space-lg);
+        border-radius: var(--radius-md);
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+}

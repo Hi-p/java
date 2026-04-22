@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="실시간 시계와 날씨 정보를 보여주는 대시보드">
+    <title>시계 & 날씨 대시보드</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <!-- 배경 애니메이션 파티클 -->
+    <div class="bg-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <div class="container">
+        <!-- 헤더 -->
+        <header class="header">
+            <h1 class="logo">🌤️ Weather Dashboard</h1>
+            <p class="subtitle">실시간 시계 & 날씨 대시보드</p>
+        </header>
+
+        <!-- 시계 섹션 -->
+        <section class="clock-section" id="clock-section">
+            <div class="glass-card clock-card">
+                <div class="clock-time" id="clock-time">00:00:00</div>
+                <div class="clock-date" id="clock-date">0000년 0월 0일 월요일</div>
+                <div class="clock-divider"></div>
+                <div class="clock-seconds-bar">
+                    <div class="seconds-fill" id="seconds-fill"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 도시 검색 -->
+        <section class="search-section">
+            <div class="glass-card search-card">
+                <div class="search-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="city-input" class="search-input"
+                        placeholder="도시 이름을 입력하세요 (예: 서울, Tokyo, New York)" autocomplete="off">
+                    <button id="search-btn" class="search-btn">검색</button>
+                </div>
+                <!-- 검색 결과 드롭다운 -->
+                <ul id="search-results" class="search-results hidden"></ul>
+            </div>
+        </section>
+
+        <!-- 현재 날씨 -->
+        <section class="weather-section hidden" id="weather-section">
+            <div class="glass-card weather-card">
+                <div class="weather-header">
+                    <div class="weather-location">
+                        <span class="location-icon">📍</span>
+                        <h2 id="location-name">—</h2>
+                    </div>
+                    <div class="weather-icon-large" id="weather-icon-large">☀️</div>
+                </div>
+
+                <div class="weather-main">
+                    <div class="temp-display">
+                        <span class="temp-value" id="temp-value">--</span>
+                        <span class="temp-unit">°C</span>
+                    </div>
+                    <div class="weather-desc" id="weather-desc">날씨 정보 없음</div>
+                    <div class="feels-like" id="feels-like">체감 --°C</div>
+                </div>
+
+                <div class="weather-details">
+                    <div class="detail-item">
+                        <span class="detail-icon">💧</span>
+                        <span class="detail-label">습도</span>
+                        <span class="detail-value" id="humidity">--%</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-icon">💨</span>
+                        <span class="detail-label">풍속</span>
+                        <span class="detail-value" id="wind-speed">-- km/h</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-icon">🌡️</span>
+                        <span class="detail-label">최고</span>
+                        <span class="detail-value" id="temp-max">--°C</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-icon">🌡️</span>
+                        <span class="detail-label">최저</span>
+                        <span class="detail-value" id="temp-min">--°C</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5일 예보 -->
+        <section class="forecast-section hidden" id="forecast-section">
+            <div class="glass-card forecast-card">
+                <h3 class="forecast-title">📅 5일 예보</h3>
+                <div class="forecast-grid" id="forecast-grid">
+                    <!-- JS로 동적 생성 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 로딩 -->
+        <div class="loading hidden" id="loading">
+            <div class="spinner"></div>
+            <p>날씨 정보를 가져오는 중...</p>
+        </div>
+
+        <!-- 에러 메시지 -->
+        <div class="error-msg hidden" id="error-msg">
+            <p>⚠️ <span id="error-text">오류가 발생했습니다.</span></p>
+        </div>
+
+        <!-- 푸터 -->
+        <footer class="footer">
+            <p>Powered by <a href="https://open-meteo.com/" target="_blank">Open-Meteo</a></p>
+        </footer>
+    </div>
+
+    <script src="/js/app.js"></script>
+</body>
+
+</html>
