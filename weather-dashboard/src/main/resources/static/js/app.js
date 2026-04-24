@@ -58,8 +58,8 @@ async function searchCity(cityName) {
     searchResults.classList.add('hidden');
 
     try {
-        // Java 백엔드의 /api/geocode 호출
-        const response = await fetch(`/api/geocode?city=${encodeURIComponent(cityName)}`);
+        // Open-Meteo Geocoding API 직접 호출 (각 사용자 IP로 분산 → 한도 문제 없음)
+        const response = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(cityName)}&count=5&language=ko`);
         const data = await response.json();
 
         // 북한(KP) 결과 제외
@@ -131,8 +131,9 @@ async function fetchWeather(lat, lon, cityName, country) {
     hideError();
 
     try {
-        // Java 백엔드의 /api/weather 호출
-        const response = await fetch(`/api/weather?lat=${lat}&lon=${lon}`);
+        // Open-Meteo Forecast API 직접 호출 (각 사용자 IP로 분산 → 한도 문제 없음)
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m,apparent_temperature&daily=temperature_2m_max,temperature_2m_min,weather_code&timezone=Asia%2FSeoul&forecast_days=5`;
+        const response = await fetch(url);
         const data = await response.json();
 
         // 화면에 표시
