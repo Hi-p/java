@@ -3,7 +3,7 @@ using namespace std;
 
 void f(char c = ' ', int line = 1); // 함수 원형 선언
 
-void f(char c, int line) { // 함수 선언
+void f(char c, int line) { // 함수 구현
     for(int i = 0; i < line; i++) {
         for(int j = 0; j < 10; j++)
             cout << c;
